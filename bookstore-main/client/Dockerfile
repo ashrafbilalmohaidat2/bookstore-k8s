@@ -12,8 +12,8 @@ COPY client/vite.config.ts ./client/
 COPY client/tsconfig.json ./client/
 COPY client/tsconfig.app.json ./client/
 COPY client/tsconfig.node.json ./client/
-COPY src ./src
-COPY public ./public
+COPY client/src ./client/src
+COPY client/public ./client/public
 
 # Install and build
 WORKDIR /app/client
