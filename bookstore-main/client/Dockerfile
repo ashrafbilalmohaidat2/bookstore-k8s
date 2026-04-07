@@ -6,14 +6,14 @@ WORKDIR /app
 COPY package.json ./
 
 # Copy client files
-COPY client/package.json ./client/
+COPY package.json ./
 COPY client/index.html ./client/
 COPY client/vite.config.ts ./client/
 COPY client/tsconfig.json ./client/
 COPY client/tsconfig.app.json ./client/
 COPY client/tsconfig.node.json ./client/
-COPY client/src ./client/src
-COPY client/public ./client/public
+COPY src ./src
+COPY public ./public
 
 # Install and build
 WORKDIR /app/client
