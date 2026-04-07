@@ -4,6 +4,7 @@ node_modules/
 *.log
 dist/
 .terraform/
+terraform
 *.tfstate
 *.tfstate.backup
 .terraform.lock.hcl
