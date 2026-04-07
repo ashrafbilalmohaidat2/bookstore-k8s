@@ -25,7 +25,7 @@ jobs:
       - name: Build and push frontend
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./bookstore-main
           file: ./bookstore-main/client/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
@@ -36,7 +36,7 @@ jobs:
       - name: Build and push backend
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./bookstore-main
           file: ./bookstore-main/server/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
