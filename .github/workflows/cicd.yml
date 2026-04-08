@@ -61,12 +61,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update frontend image in manifest
+        shell: bash
         run: |
-          "C:\Program Files\Git\usr\bin\sed.exe" -i "s|image: ashrafbilalmohaidat/bookstore-frontend:.*|image: ashrafbilalmohaidat/bookstore-frontend:${{ github.sha }}|g" bookstore-main/k8s/frontend/deployment.yaml
+          sed -i "s|image: ashrafbilalmohaidat/bookstore-frontend:.*|image: ashrafbilalmohaidat/bookstore-frontend:${{ github.sha }}|g" bookstore-main/k8s/frontend/deployment.yaml
 
       - name: Update backend image in manifest
+        shell: bash
         run: |
-          "C:\Program Files\Git\usr\bin\sed.exe" -i "s|image: ashrafbilalmohaidat/bookstore-backend:.*|image: ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}|g" bookstore-main/k8s/backend/deployment.yaml
+          sed -i "s|image: ashrafbilalmohaidat/bookstore-backend:.*|image: ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}|g" bookstore-main/k8s/backend/deployment.yaml
 
 
       - name: Deploy to minikube
