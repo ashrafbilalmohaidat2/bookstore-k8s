@@ -16,9 +16,9 @@ COPY client/src ./client/src
 COPY client/public ./client/public
 
 # Install and build
-WORKDIR /app/client
-RUN npm install
-RUN npm run build
+WORKDIR /app
+RUN npm install --prefix client
+RUN npm run build --prefix client
 
 # Production stage - serve with nginx
 FROM nginx:alpine
