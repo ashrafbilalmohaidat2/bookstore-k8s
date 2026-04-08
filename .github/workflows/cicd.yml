@@ -44,10 +44,6 @@ jobs:
             ashrafbilalmohaidat/bookstore-backend:latest
             ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}
 
-      - name: Install Trivy
-        run: |
-          choco install trivy -y
-
       - name: Scan frontend image
         run: |
           trivy image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-frontend:latest
