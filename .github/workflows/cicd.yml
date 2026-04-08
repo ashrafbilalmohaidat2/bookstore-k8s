@@ -62,11 +62,12 @@ jobs:
 
       - name: Update frontend image in manifest
         run: |
-          sed -i "s|image: bookstore-client:.*|image: ashrafbilalmohaidat/bookstore-frontend:${{ github.sha }}|g" bookstore-main/k8s/frontend/deployment.yaml
+          "C:\Program Files\Git\usr\bin\sed.exe" -i "s|image: ashrafbilalmohaidat/bookstore-frontend:.*|image: ashrafbilalmohaidat/bookstore-frontend:${{ github.sha }}|g" bookstore-main/k8s/frontend/deployment.yaml
 
       - name: Update backend image in manifest
         run: |
-          sed -i "s|image: bookstore-server:.*|image: ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}|g" bookstore-main/k8s/backend/deployment.yaml
+          "C:\Program Files\Git\usr\bin\sed.exe" -i "s|image: ashrafbilalmohaidat/bookstore-backend:.*|image: ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}|g" bookstore-main/k8s/backend/deployment.yaml
+
 
       - name: Deploy to minikube
         run: |
