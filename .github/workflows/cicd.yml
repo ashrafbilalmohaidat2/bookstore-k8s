@@ -79,9 +79,9 @@ jobs:
 
       - name: Deploy to minikube
         run: |
-          kubectl apply -f bookstore-main/k8s/namespaces/namespaces.yaml
-          kubectl apply -f bookstore-main/k8s/mongodb/
-          kubectl apply -f bookstore-main/k8s/backend/
-          kubectl apply -f bookstore-main/k8s/frontend/
+          kubectl apply -f k8s/namespaces/namespaces.yaml
+          kubectl apply -f k8s/mongodb/
+          kubectl apply -f k8s/backend/
+          kubectl apply -f k8s/frontend/
           kubectl rollout restart deployment/frontend -n production
           kubectl rollout restart deployment/backend -n production
