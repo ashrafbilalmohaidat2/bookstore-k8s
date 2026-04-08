@@ -63,18 +63,18 @@ jobs:
       - name: Update frontend image in manifest
         shell: powershell
         run: |
-          (Get-Content bookstore-main/k8s/frontend/deployment.yaml) `
+          (Get-Content k8s/frontend/deployment.yaml) `
             -replace 'image: ashrafbilalmohaidat/bookstore-frontend:.*',
                     "image: ashrafbilalmohaidat/bookstore-frontend:${{ github.sha }}" `
-            | Set-Content bookstore-main/k8s/frontend/deployment.yaml
+            | Set-Content k8s/frontend/deployment.yaml
 
       - name: Update backend image in manifest
         shell: powershell
         run: |
-          (Get-Content bookstore-main/k8s/backend/deployment.yaml) `
+          (Get-Content k8s/backend/deployment.yaml) `
             -replace 'image: ashrafbilalmohaidat/bookstore-backend:.*',
                     "image: ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}" `
-            | Set-Content bookstore-main/k8s/backend/deployment.yaml
+            | Set-Content k8s/backend/deployment.yaml
 
 
       - name: Deploy to minikube
