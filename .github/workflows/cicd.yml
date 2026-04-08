@@ -46,11 +46,11 @@ jobs:
 
       - name: Scan frontend image
         run: |
-          trivy image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-frontend:latest
+          C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-frontend:latest
 
       - name: Scan backend image
         run: |
-          trivy image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-backend:latest
+          C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-backend:latest
 
   deploy:
     runs-on: self-hosted
