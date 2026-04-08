@@ -61,7 +61,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update frontend image in manifest
-        shell: pwsh
+        shell: powershell
         run: |
           (Get-Content bookstore-main/k8s/frontend/deployment.yaml) `
             -replace 'image: ashrafbilalmohaidat/bookstore-frontend:.*',
@@ -69,7 +69,7 @@ jobs:
             | Set-Content bookstore-main/k8s/frontend/deployment.yaml
 
       - name: Update backend image in manifest
-        shell: pwsh
+        shell: powershell
         run: |
           (Get-Content bookstore-main/k8s/backend/deployment.yaml) `
             -replace 'image: ashrafbilalmohaidat/bookstore-backend:.*',
