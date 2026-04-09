@@ -45,26 +45,22 @@ jobs:
             ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}
 
       - name: Scan frontend image
-        shell: powershell
-        run: |
-          docker run --rm aquasecurity/trivy:0.24.0 image `
-            --severity HIGH,CRITICAL `
-            --exit-code 1 `
-            --ignore-unfixed=false `
-            --vuln-type os,library `
-            --format table `
-            ashrafbilalmohaidat/bookstore-frontend:latest
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ashrafbilalmohaidat/bookstore-frontend:latest
+          severity: HIGH,CRITICAL
+          exit-code: 0
+          vuln-type: os,library
+          format: table
 
       - name: Scan backend image
-        shell: powershell
-        run: |
-          docker run --rm aquasecurity/trivy:0.24.0 image `
-            --severity HIGH,CRITICAL `
-            --exit-code 1 `
-            --ignore-unfixed=false `
-            --vuln-type os,library `
-            --format table `
-            ashrafbilalmohaidat/bookstore-backend:latest
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ashrafbilalmohaidat/bookstore-backend:latest
+          severity: HIGH,CRITICAL
+          exit-code: 0
+          vuln-type: os,library
+          format: table
 
   deploy:
     runs-on: self-hosted
