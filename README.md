@@ -42,24 +42,6 @@ Ingress (NGINX)
 
 ---
 
-## 📁 Project Structure
-├── bookstore-main/
-│   ├── client/              # React frontend
-│   │   ├── Dockerfile
-│   │   └── nginx.conf
-│   └── server/              # Node.js backend
-│       └── Dockerfile
-├── k8s/
-│   ├── namespaces/          # dev + production namespaces
-│   ├── mongodb/             # Deployment, Service, PV, PVC
-│   ├── backend/             # Deployment, Service, ConfigMap, Secret, HPA
-│   ├── frontend/            # Deployment, Service
-│   └── ingress/             # NGINX Ingress
-└── .github/
-└── workflows/
-└── cicd.yml         # CI/CD Pipeline
----
-
 ## 🚀 Local Setup
 
 ### Prerequisites
