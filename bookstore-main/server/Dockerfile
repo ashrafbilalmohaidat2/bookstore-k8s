@@ -12,7 +12,7 @@ COPY server/src ./server/src
 
 # Install and build
 WORKDIR /app/server
-RUN npm install
+RUN npm install --frozen-lockfile
 RUN npm run build
 
 # Production stage
@@ -20,11 +20,14 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+ENV NODE_ENV=production
+
 COPY package.json ./
 COPY server/package.json ./server/
+COPY server/package-lock.json ./server/
 
 WORKDIR /app/server
-RUN npm install --omit=dev
+RUN npm install --omit=dev --frozen-lockfile
 
 COPY --from=builder /app/server/dist ./dist
 
