@@ -13,12 +13,13 @@ COPY client/public ./client/public
 
 # Install and build
 WORKDIR /app/client
-ENV NODE_ENV=production
 RUN npm install --frozen-lockfile
 RUN npm run build
 
 # Production stage
 FROM nginx:1.27-alpine
+
+ENV NODE_ENV=production
 
 COPY --from=builder /app/client/dist /usr/share/nginx/html
 COPY client/nginx.conf /etc/nginx/conf.d/default.conf
