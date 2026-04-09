@@ -47,7 +47,7 @@ jobs:
       - name: Scan frontend image
         shell: powershell
         run: |
-          docker run --rm aquasecurity/trivy:0.69.3 image `
+          docker run --rm aquasecurity/trivy:latest image `
             --severity HIGH,CRITICAL `
             --exit-code 0 `
             --ignore-unfixed=false `
@@ -58,7 +58,7 @@ jobs:
       - name: Scan backend image
         shell: powershell
         run: |
-          docker run --rm aquasecurity/trivy:0.69.3 image `
+          docker run --rm aquasecurity/trivy:latest image `
             --severity HIGH,CRITICAL `
             --exit-code 0 `
             --ignore-unfixed=false `
