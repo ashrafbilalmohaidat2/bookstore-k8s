@@ -46,11 +46,11 @@ jobs:
 
       - name: Scan frontend image
         shell: powershell
-        run: docker run --rm aquasecurity/trivy:0.33.1 image --severity HIGH,CRITICAL --exit-code 0 --ignore-unfixed=false --vuln-type os,library --format table ashrafbilalmohaidat/bookstore-frontend:latest
+        run: C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-frontend:latest
 
       - name: Scan backend image
         shell: powershell
-        run: docker run --rm aquasecurity/trivy:0.33.1 image --severity HIGH,CRITICAL --exit-code 0 --ignore-unfixed=false --vuln-type os,library --format table ashrafbilalmohaidat/bookstore-backend:latest
+        run: C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-backend:latest
 
   deploy:
     runs-on: self-hosted
