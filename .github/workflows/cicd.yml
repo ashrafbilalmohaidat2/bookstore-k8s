@@ -47,14 +47,14 @@ jobs:
       - name: Scan frontend image
         uses: aquasecurity/trivy-action@master
         with:
-          image: ashrafbilalmohaidat/bookstore-frontend:latest
+          image-ref: ashrafbilalmohaidat/bookstore-frontend:latest
           severity: HIGH,CRITICAL
           exit-code: 0
 
       - name: Scan backend image
         uses: aquasecurity/trivy-action@master
         with:
-          image: ashrafbilalmohaidat/bookstore-backend:latest
+          image-ref: ashrafbilalmohaidat/bookstore-backend:latest
           severity: HIGH,CRITICAL
           exit-code: 0
 
