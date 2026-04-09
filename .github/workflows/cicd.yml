@@ -45,12 +45,18 @@ jobs:
             ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}
 
       - name: Scan frontend image
-        run: |
-          C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-frontend:latest
+        uses: aquasecurity/trivy-action@master
+        with:
+          image: ashrafbilalmohaidat/bookstore-frontend:latest
+          severity: HIGH,CRITICAL
+          exit-code: 0
 
       - name: Scan backend image
-        run: |
-          C:\trivy\trivy.exe image --exit-code 0 --severity HIGH,CRITICAL ashrafbilalmohaidat/bookstore-backend:latest
+        uses: aquasecurity/trivy-action@master
+        with:
+          image: ashrafbilalmohaidat/bookstore-backend:latest
+          severity: HIGH,CRITICAL
+          exit-code: 0
 
   deploy:
     runs-on: self-hosted
