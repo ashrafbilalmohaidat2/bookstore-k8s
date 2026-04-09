@@ -45,7 +45,7 @@ jobs:
             ashrafbilalmohaidat/bookstore-backend:${{ github.sha }}
 
       - name: Scan frontend image
-        shell: pwsh
+        shell: powershell
         run: |
           docker run --rm aquasecurity/trivy:0.69.3 image `
             --severity HIGH,CRITICAL `
@@ -56,7 +56,7 @@ jobs:
             ashrafbilalmohaidat/bookstore-frontend:latest
 
       - name: Scan backend image
-        shell: pwsh
+        shell: powershell
         run: |
           docker run --rm aquasecurity/trivy:0.69.3 image `
             --severity HIGH,CRITICAL `
