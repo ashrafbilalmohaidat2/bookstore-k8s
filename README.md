@@ -5,23 +5,7 @@ A production-ready bookstore web application built with the MERN stack, containe
 ---
 
 ## 🏗️ Architecture
-User
-↓
-Ingress (NGINX)
-↓
-┌─────────────────────────────────────┐
-│           Kubernetes Cluster         │
-│                                     │
-│  ┌──────────┐      ┌──────────────┐ │
-│  │ Frontend │ ───► │   Backend    │ │
-│  │  (React) │      │  (Node.js)   │ │
-│  └──────────┘      └──────┬───────┘ │
-│                           │         │
-│                    ┌──────▼───────┐ │
-│                    │   MongoDB    │ │
-│                    │  (+ PV/PVC)  │ │
-│                    └──────────────┘ │
-└─────────────────────────────────────┘
+!![Architecture Diagram](k8s.png)
 ---
 
 ## 🛠️ Tech Stack
